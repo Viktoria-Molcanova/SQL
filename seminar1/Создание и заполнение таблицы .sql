@@ -1,4 +1,4 @@
-//Создание таблицы
+--Создание таблицы
 
 CREATE TABLE `sakila`.`1` (
   `id_product` INT NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE `sakila`.`1` (
   `price` VARCHAR(45) NULL,
   PRIMARY KEY (`id_product`));
 
-//Заполнение таблицы
+--Заполнение таблицы
 
 INSERT INTO `sakila`.`1` (`id_product`, `product_name`, `manufacturer`, `product_count`, `price`) VALUES ('1', 'Iphone', 'Apple', '5', '10000');
 INSERT INTO `sakila`.`1` (`id_product`, `product_name`, `manufacturer`, `product_count`, `price`) VALUES ('2', 'Watch', 'samsung', '6', '20000');
