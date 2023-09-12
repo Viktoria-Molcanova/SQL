@@ -1,4 +1,4 @@
-USE vk
+USE vk;
   -- Написать скрипт, возвращающий список имен (только firstname) пользователей без повторений в алфавитном порядке. [ORDER BY]
   
 SELECT DISTINCT firstname
