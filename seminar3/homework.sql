@@ -1,4 +1,4 @@
-use vk
+USE vk
   -- Написать скрипт, возвращающий список имен (только firstname) пользователей без повторений в алфавитном порядке. [ORDER BY]
   
 SELECT DISTINCT firstname
@@ -10,7 +10,7 @@ ORDER BY firstname ASC;
 SELECT COUNT(*) 'Количество мужчин старше 35 лет'
 FROM `vk`.`profiles` 
 WHERE gender = 'm' 
-    AND TIMESTAMPDIFF(YEAR, birthday, NOW()) > '35';
+AND TIMESTAMPDIFF(YEAR, birthday, NOW()) > '35';
 
 -- Сколько заявок в друзья в каждом статусе? (таблица friend_requests) [GROUP BY]
 
