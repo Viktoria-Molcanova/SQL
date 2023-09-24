@@ -60,43 +60,44 @@ DELIMITER //
 CREATE PROCEDURE Del_User (user_id_del INT)
 BEGIN
 
-    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+DECLARE EXIT HANDLER FOR SQLEXCEPTION
+SELECT 'An error has occurred, operation rollbacked and the stored procedure was terminated';
     
-    BEGIN
-        ROLLBACK;
-    END;
+BEGIN
+ROLLBACK;
+END;
 
-	START TRANSACTION;
+START TRANSACTION;
     
-		DELETE 
+	DELETE 
         FROM `vk`.`messages` m
-		WHERE m.to_user_id = user_id_del 
-            OR m.from_user_id = user_id_del;
+	WHERE m.to_user_id = user_id_del 
+        OR m.from_user_id = user_id_del;
             
-		DELETE 
+	DELETE 
         FROM `vk`.`likes` l
-		WHERE l.user_id = user_id_del;
+	WHERE l.user_id = user_id_del;
     
-		DELETE 
+	DELETE 
         FROM `vk`.`users_communities` uc
-		WHERE uc.user_id = user_id_del;
+	WHERE uc.user_id = user_id_del;
     
-		DELETE 
+	DELETE 
         FROM `vk`.`profiles` p
-		WHERE p.user_id = user_id_del;
+	WHERE p.user_id = user_id_del;
     
-		DELETE 
+	DELETE 
         FROM `vk`.`friend_requests` fr
-		WHERE fr.initiator_user_id = user_id_del 
-            OR fr.target_user_id = user_id_del;
+	WHERE fr.initiator_user_id = user_id_del 
+        OR fr.target_user_id = user_id_del;
     
-		DELETE 
-		FROM `vk`.`media` m
-		WHERE m.user_id = user_id_del;
+	DELETE 
+	FROM `vk`.`media` m
+	WHERE m.user_id = user_id_del;
         
-		DELETE 
+	DELETE 
         FROM `vk`.`users` u
-		WHERE u.id = user_id_del;
+	WHERE u.id = user_id_del;
          
 	COMMIT;
 
